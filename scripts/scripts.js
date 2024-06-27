@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function setupTaskPage() {
     let pendingTable = document.querySelector(".pen tbody");
+    loadTasks(pendingTable);
     let addBtn = document.getElementById("addBtn");
 
     addBtn.addEventListener("click", function (event) {
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
     insertTaskInOrder(newTask, inputedDate, pendingTable);
-
+    saveAllTasks(pendingTable);
     document.getElementById("taskForm").reset();
   }
 
@@ -96,28 +97,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let currentDate = new Date();
     currentDate.setHours(0, 0, 0, 0);
 
-    if (currentDate > taskDueDate) {
-      taskRow.cells[1].textContent = "Overdue";
-    } else {
-      taskRow.cells[1].textContent = "Done";
-    }
+    taskRow.cells[1].textContent =
+      currentDate > taskDueDate ? "Overdue" : "Done";
 
     taskRow.removeChild(taskRow.lastElementChild);
 
     doneTable.appendChild(taskRow);
 
-    console.log("Task moved to Done");
-  }
-
-  function showToast(message, duration = 3000) {
-    const toast = document.getElementById("toast");
-    const toastBody = document.querySelector(".toast-body");
-    toastBody.textContent = message;
-    toast.style.display = "block";
-
-    setTimeout(() => {
-      toast.style.display = "none";
-    }, duration);
+    saveAllTasks();
   }
 
   function populateUserDropdown() {
@@ -153,7 +140,63 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.setItem("lastUserId", newUserId);
     console.log("User added:", newUser);
   }
+  function saveAllTasks() {
+    const pendingTable = document.querySelector(".pen tbody");
+    const doneTable = document.querySelector(".Done .table tbody");
 
+    let tasks = [];
+    const collectTasks = (table) => {
+      table.querySelectorAll("tr").forEach((row) => {
+        let task = {
+          name: row.cells[0].textContent,
+          status: row.cells[1].textContent,
+          user: row.cells[2].textContent,
+          dueDate: row.cells[3].textContent,
+        };
+        tasks.push(task);
+      });
+    };
+
+    collectTasks(pendingTable);
+    collectTasks(doneTable);
+
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }
+
+  function loadTasks() {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const pendingTable = document.querySelector(".pen tbody");
+    const doneTable = document.querySelector(".Done .table tbody");
+
+    pendingTable.innerHTML = "";
+    doneTable.innerHTML = "";
+
+    tasks.forEach((task) => {
+      let row = document.createElement("tr");
+      row.innerHTML = `
+      <td>${task.name}</td>
+      <td>${task.status}</td>
+      <td>${task.user}</td>
+      <td>${task.dueDate}</td>
+    `;
+      if (task.status === "Pending") {
+        row.innerHTML += `<td><button class="button" onclick="handleDoneButtonClick(event)">Done</button></td>`;
+        pendingTable.appendChild(row);
+      } else {
+        doneTable.appendChild(row);
+      }
+    });
+  }
+  function showToast(message, duration = 3000) {
+    const toast = document.getElementById("toast");
+    const toastBody = document.querySelector(".toast-body");
+    toastBody.textContent = message;
+    toast.style.display = "block";
+
+    setTimeout(() => {
+      toast.style.display = "none";
+    }, duration);
+  }
   window.handleAddUser = handleAddUser;
   window.populateUserDropdown = populateUserDropdown;
   window.handleAddButtonClick = handleAddButtonClick;
