@@ -9,14 +9,14 @@ body {
   flex-wrap: wrap;
   align-items: center;
   height: 100%;
-  background: antiquewhite; /* Soft and neutral background color */
+  background: antiquewhite;
 }
 
 .title {
   margin: 20px 0;
   font-size: 24px;
   color: #333;
-  font-family: "Arial", sans-serif; /* Adding a more modern font */
+  font-family: "Arial", sans-serif;
 }
 
 .Block {
@@ -24,7 +24,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 100%; /* Full width to align with the flex parent */
+  width: 100%;
   background: antiquewhite;
   padding: 20px 0;
 }
@@ -49,7 +49,7 @@ body {
   padding: 12px 15px;
   border-bottom: 1px solid #dddddd;
   text-align: left;
-  font-family: "Arial", sans-serif; /* Consistent font for readability */
+  font-family: "Arial", sans-serif;
 }
 
 .table th {
@@ -63,11 +63,80 @@ body {
 }
 
 .table tbody tr {
-  transition: background-color 0.3s; /* Smooth transition for hover effects */
+  transition: background-color 0.3s;
 }
 
 .table tbody tr:nth-child(odd) {
   background-color: #fac3af;
+}
+.users {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 1;
+  gap: 10px;
+  height: fit-content;
+  width: 20%;
+  background: #fac3af;
+  border-radius: 10px;
+  padding: 10px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 1200px) {
+  .users {
+    width: 30%;
+  }
+}
+
+@media (max-width: 992px) {
+  .users {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .users {
+    width: 50%;
+    flex-direction: column;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .users {
+    width: 70%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .users {
+    width: 90%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .users {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+.users button {
+  width: 100%;
+  padding: 10px;
+  background-color: #0c7076;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.users button:hover {
+  background-color: #0f969c;
 }
 
 .table tbody tr:nth-child(even) {
@@ -75,29 +144,29 @@ body {
 }
 
 .table tbody tr:hover {
-  background-color: #fbccbb; /* Hover effect */
+  background-color: #fbccbb;
 }
 
 button {
   padding: 8px 16px;
   border: none;
-  background-color: #0c7076; /* Teal color to match your palette */
+  background-color: #0c7076;
   color: white;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s; /* Smooth transition for hover */
+  transition: background-color 0.3s;
 }
 
 button:hover {
-  background-color: #0f969c; /* Lighter teal on hover */
+  background-color: #0f969c;
 }
 .additionForm {
   align-self: center;
   width: 80%;
   margin: 20px;
   padding: 15px;
-  background-color: #fcbba3; /* Light grey background */
-  border-radius: 8px; /* Rounded corners */
+  background-color: #fcbba3;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -117,9 +186,9 @@ button:hover {
 .additionForm input[type="text"],
 .additionForm select {
   padding: 12px;
-  margin-bottom: 10px; /* Spacing between form elements */
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 4px; /* Rounded corners for inputs and dropdown */
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 .additionForm input[type="text"]:focus,
@@ -129,29 +198,29 @@ button:hover {
 
 .additionForm button {
   padding: 10px;
-  background-color: #0c7076; /* Teal background */
+  background-color: #0c7076;
   color: white;
   border: none;
-  border-radius: 4px; /* Rounded corners */
+  border-radius: 4px;
   cursor: pointer;
   max-width: 200px;
   align-self: center;
 }
 
 .additionForm button:hover {
-  background-color: #0f969c; /* Lighter teal on hover */
+  background-color: #0f969c;
 }
 .additionForm input[type="date"] {
   padding: 12px;
-  margin-bottom: 10px; /* Spacing between form elements */
-  border: 1px solid #ccc; /* Light grey border */
-  border-radius: 4px; /* Rounded corners for inputs */
-  background-color: white; /* Ensures consistent background */
-  cursor: pointer; /* Indicates it's clickable */
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
 }
 
 .additionForm input[type="date"]:focus {
-  outline-color: #0c7076; /* Focus color matching your palette */
+  outline-color: #0c7076;
 }
 
 .odd-row {

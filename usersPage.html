@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add User</title>
+    <link rel="stylesheet" href="styles/users.css" />
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="title">Add User</h1>
+      <form id="userForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Username" required />
+        <button type="button" onclick="handleAddUser()">Add User</button>
+      </form>
+      <div id="toast" class="toast" style="display: none">
+        <div class="toast-body"></div>
+      </div>
+    </div>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
