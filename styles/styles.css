@@ -1,0 +1,193 @@
+body {
+  background-color: antiquewhite;
+}
+.page {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  height: 100%;
+  background: antiquewhite; /* Soft and neutral background color */
+}
+
+.title {
+  margin: 20px 0;
+  font-size: 24px;
+  color: #333;
+  font-family: "Arial", sans-serif; /* Adding a more modern font */
+}
+
+.Block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%; /* Full width to align with the flex parent */
+  background: antiquewhite;
+  padding: 20px 0;
+}
+
+.tables {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+  font-family: "Arial", sans-serif; /* Consistent font for readability */
+}
+
+.table th {
+  background-color: #0c7076;
+  color: white;
+  font-weight: bold;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.table tbody tr {
+  transition: background-color 0.3s; /* Smooth transition for hover effects */
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #fac3af;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #fcbba3;
+}
+
+.table tbody tr:hover {
+  background-color: #fbccbb; /* Hover effect */
+}
+
+button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #0c7076; /* Teal color to match your palette */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+button:hover {
+  background-color: #0f969c; /* Lighter teal on hover */
+}
+.additionForm {
+  align-self: center;
+  width: 80%;
+  margin: 20px;
+  padding: 15px;
+  background-color: #fcbba3; /* Light grey background */
+  border-radius: 8px; /* Rounded corners */
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  max-width: 700px;
+}
+
+.additionForm h3 {
+  margin-bottom: 15px;
+  align-self: center;
+}
+
+.additionForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.additionForm input[type="text"],
+.additionForm select {
+  padding: 12px;
+  margin-bottom: 10px; /* Spacing between form elements */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px; /* Rounded corners for inputs and dropdown */
+}
+
+.additionForm input[type="text"]:focus,
+.additionForm select:focus {
+  outline-color: #0c7076;
+}
+
+.additionForm button {
+  padding: 10px;
+  background-color: #0c7076; /* Teal background */
+  color: white;
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  max-width: 200px;
+  align-self: center;
+}
+
+.additionForm button:hover {
+  background-color: #0f969c; /* Lighter teal on hover */
+}
+.additionForm input[type="date"] {
+  padding: 12px;
+  margin-bottom: 10px; /* Spacing between form elements */
+  border: 1px solid #ccc; /* Light grey border */
+  border-radius: 4px; /* Rounded corners for inputs */
+  background-color: white; /* Ensures consistent background */
+  cursor: pointer; /* Indicates it's clickable */
+}
+
+.additionForm input[type="date"]:focus {
+  outline-color: #0c7076; /* Focus color matching your palette */
+}
+
+.odd-row {
+  background-color: #fac3af;
+}
+
+.even-row {
+  background-color: #fcbba3;
+}
+
+@media (max-width: 600px) {
+  .tables {
+    width: 95%;
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10000;
+  background-color: #0c7076;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toast-body {
+  padding: 0 10px;
+}
+
+.toast.hide {
+  display: none;
+}

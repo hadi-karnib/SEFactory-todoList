@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <h1 class="title">Todo List</h1>
+      <div class="tables">
+        <div class="pending Block">
+          <h2>Pending Tasks</h2>
+          <table class="table pending pen">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>User</th>
+                <th>Due Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="Done Block">
+          <h2>Done or Expired Tasks</h2>
+          <table class="table pending">
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Status</th>
+                <th>User</th>
+                <th>Due Date</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="additionForm">
+          <h3>Add a Task</h3>
+          <form id="taskForm">
+            <input type="text" id="taskName" placeholder="Task Name" />
+            <input
+              type="text"
+              placeholder="status"
+              id="taskStatus"
+              value="Pending"
+              readonly
+            />
+            <select
+              name="user"
+              title="Users"
+              id="taskUser"
+              class="user-dropdown"
+            >
+              <option value="Hadi">Hadi</option>
+              <option value="Alex">Alex</option>
+              <option value="Maria">Maria</option>
+            </select>
+            <input
+              type="date"
+              name="dueDate"
+              class="date-input"
+              id="taskDueDate"
+              placeholder="Due Date"
+            />
+            <button id="addBtn" type="button">Add Task</button>
+          </form>
+        </div>
+      </div>
+      <div id="toast" class="toast" style="display: none">
+        <div class="toast-body"></div>
+      </div>
+    </div>
+    <script src="scripts/scripts.js"></script>
+  </body>
+</html>
